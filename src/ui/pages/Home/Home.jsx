@@ -9,6 +9,8 @@ const Home = ({ hello, setHello }) => (
         <h1>Home</h1>
         <Link to={'/about'}>About</Link>
         <br/>
+        <Link to={'/todos'}>ToDo</Link>
+        <br/>
         <div>{hello}</div>
         {console.log(hello)}
         <button type='button' onClick={() => setHello('Hello')}>Click</button>

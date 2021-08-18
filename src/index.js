@@ -7,6 +7,7 @@ import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import Routes from './ui/pages/Routes.js';
+import '@babel/polyfill';
 
 import './styles.scss';
 

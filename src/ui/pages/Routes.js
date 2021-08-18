@@ -2,6 +2,7 @@ import Home from './Home/Home.jsx';
 import About from './About/About.jsx';
 import NotFound from './NotFound/NotFound.jsx';
 import App from '../../App.jsx';
+import ToDos from './ToDos/ToDos.jsx';
 
 export default [
     {
@@ -15,6 +16,10 @@ export default [
             {
                 component: About,
                 path: '/about'
+            },
+            {
+                component: ToDos,
+                path: '/todos'
             },
             {
                 component: NotFound
