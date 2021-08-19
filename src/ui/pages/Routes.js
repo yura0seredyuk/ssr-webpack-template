@@ -6,23 +6,23 @@ import ToDos from './ToDos/ToDos.jsx';
 
 export default [
     {
-        component: App,
+        ...App,
         routes: [
             {
-                component: Home,
+                ...Home,
                 path: '/',
                 exact: true
             },
             {
-                component: About,
+                ...About,
                 path: '/about'
             },
             {
-                component: ToDos,
+                ...ToDos,
                 path: '/todos'
             },
             {
-                component: NotFound
+                ...NotFound
             },
         ]
     }

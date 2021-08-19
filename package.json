@@ -5,8 +5,11 @@
   "author": "yura0seredyuk <yura.seredyuk0@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node ./dist/server.js",
     "dev": "webpack serve --config webpack.config.dev.js --mode development",
-    "build ": "webpack --config webpack.config.prod.js --mode production",
+    "build:spa": "webpack --config webpack.config.spa.js --mode production",
+    "build:client": "webpack --config webpack.config.client.js --mode production",
+    "build:server": "webpack --config webpack.config.server.js --mode production",
     "serve": "serve ./dist"
   },
   "devDependencies": {
@@ -25,19 +28,24 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.0",
     "node-sass": "^6.0.1",
+    "null-loader": "^4.0.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "webpack": "^5.50.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-stats-plugin": "^1.0.3"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "axios": "^0.21.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.1",
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -45,6 +53,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^6.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }

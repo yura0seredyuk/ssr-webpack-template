@@ -23,4 +23,4 @@ const MapStateToProps = state => ({
 
 const MapDispatchToProps = { setHello }
 
-export default connect(MapStateToProps, MapDispatchToProps)(Home);
+export default { component: connect(MapStateToProps, MapDispatchToProps)(Home) };

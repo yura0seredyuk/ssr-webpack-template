@@ -7,9 +7,15 @@ const middleware = [thunk];
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
+let state;
+if (typeof window !== 'undefined') {
+    state = window.__PRELOADED_STATE__;
+    delete window.__PRELOADED_STATE__;
+}
+
 const store = createStore(
     reducers,
-    undefined,
+    state,
     composeEnhancers(applyMiddleware(...middleware))
 )
 

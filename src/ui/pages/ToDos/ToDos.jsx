@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchTodos } from '../../../store/actions';
 
-
 const ToDos = ({ todos, fetchTodos }) => (
     <div>
         <h1>ToDo</h1>
@@ -14,6 +13,9 @@ const ToDos = ({ todos, fetchTodos }) => (
     </div>
 );
 
+const loadData = (store, param) => {
+    return store.dispatch(fetchTodos(param))
+}
 
 const mapStateToProps = state => ({
     todos: state.todos
@@ -21,4 +23,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { fetchTodos };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToDos);
+export default {
+    component: connect(mapStateToProps, mapDispatchToProps)(ToDos),
+    loadData
+};

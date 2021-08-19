@@ -11,7 +11,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(baseConfig,{
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src/client.js',
     output: {
         filename: 'bundle.[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
@@ -30,6 +30,14 @@ module.exports = merge(baseConfig,{
                 sourceMap: false
             })
         ],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
