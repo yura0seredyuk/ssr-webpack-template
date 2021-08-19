@@ -14,7 +14,15 @@ module.exports = {
                         ]
                     }
                 }
-            }
+            },
+            {
+                test: /\.(?:ico|png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource', // or asset
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|otf|svg)(\?v=\d+\.\d+\.\d+)/,
+                type: 'asset/inline',
+            },
         ]
     },
 };
