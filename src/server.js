@@ -3,6 +3,10 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { matchRoutes, renderRoutes } from 'react-router-config';
 import express from 'express';
+const cors = require('cors');
+const cookiesParser = require('cookie-parser');
+const mongoose = require('mongoose');
+require('dotenv').config();
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import '@babel/polyfill';
@@ -10,10 +14,20 @@ import '@babel/polyfill';
 import Routes from './ui/client/pages/Routes';
 import { store } from './store';
 import { assetsByChunkName } from '../dist/public/stats.json';
+import bodyParser from 'body-parser';
+
+const router = require('./router/index');
 
 const app = express();
 
-app.use(express.static('dist/public'))
+app.use(bodyParser.json());
+app.use(cookiesParser());
+app.use(cors());
+
+app.use('/api', router);
+
+app.use(express.static('dist/public'));
+
 
 const renderer = (req, store, context) => {
     const content = renderToString(
@@ -83,6 +97,26 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server on port ${PORT}`);
-})
+const start = async () => {
+    try {
+        await mongoose.connect(process.env.DB_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        }, (err) => {
+            if (err) {
+                console.log('Err, could not connect to the database.');
+            } else {
+                console.log('Connected to the database.');
+            }
+        })
+        app.listen(PORT, () => {
+            console.log(`Server on port ${PORT}`);
+        });
+    } catch (e) {
+        console.log('Error in server', e);
+    }
+};
+
+start();
+
