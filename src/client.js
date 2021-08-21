@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import Routes from './ui/pages/Routes.js';
 import '@babel/polyfill';
+import './language/i18n';
 
 import './styles.scss';
 
