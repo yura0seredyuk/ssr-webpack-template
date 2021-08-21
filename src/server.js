@@ -9,11 +9,11 @@ import '@babel/polyfill';
 
 import Routes from './ui/pages/Routes';
 import { store } from './store';
-import { assetsByChunkName } from '../dist/stats.json';
+import { assetsByChunkName } from '../dist/public/stats.json';
 
 const app = express();
 
-app.use(express.static('dist'))
+app.use(express.static('dist/public'))
 
 const renderer = (req, store, context) => {
     const content = renderToString(
