@@ -48,6 +48,7 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.1",
     "concurrently": "^6.2.1",
+    "copy-webpack-plugin": "^9.0.1",
     "express": "^4.17.1",
     "i18next": "^20.4.0",
     "i18next-browser-languagedetector": "^6.1.2",

@@ -34,7 +34,8 @@ const renderer = (req, store, context) => {
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" type="text/css" href="/${assetsByChunkName.main[0]}"/>
-      <title>Document</title>
+      <link rel="icon" href="./public/favicon.ico" type="image/ico">
+      <title>React app</title>
     </head>
       <body>
         <div id="root">${content}</div>

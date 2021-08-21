@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const baseConfig = require('./webpack.config.base');
 
@@ -26,6 +27,11 @@ module.exports = merge(baseConfig,{
             template: './index.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, '../favicon.ico'), to: path.resolve(__dirname, '../public') },
+            ],
+        }),
     ],
     devServer: {
         contentBase: './public',

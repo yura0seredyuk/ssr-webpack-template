@@ -8,6 +8,7 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(baseConfig,{
     mode: 'production',
@@ -49,7 +50,12 @@ module.exports = merge(baseConfig,{
             }
         }),
         new CompressionPlugin(),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, '../favicon.ico'), to: path.resolve(__dirname, '../dist') },
+            ],
+        }),
     ],
     devtool: 'inline-source-map'
 });
