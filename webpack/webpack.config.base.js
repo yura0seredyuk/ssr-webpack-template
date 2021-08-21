@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
     target: 'web',
     module: {
@@ -24,5 +25,8 @@ module.exports = {
                 type: 'asset/inline',
             },
         ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'], // add other
     },
 };
