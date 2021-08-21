@@ -9,6 +9,7 @@
     "dev": "webpack serve --config webpack/webpack.config.dev.js --mode development",
     "build:spa": "webpack --config webpack/webpack.config.spa.js --mode production",
     "build:client": "webpack --config webpack/webpack.config.client.js --mode production",
+    "clean:build:client": "concurrently \"rm -rf dist/*\" \"npm run build:client\"",
     "build:server": "webpack --config webpack/webpack.config.server.js --mode production",
     "serve": "serve ./dist"
   },
@@ -45,6 +46,7 @@
     "axios": "^0.21.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.1",
+    "concurrently": "^6.2.1",
     "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
