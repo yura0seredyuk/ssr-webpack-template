@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../../../store/actions';
+import { fetchTodos } from '../../../../store/actions';
 
 const ToDos = ({ todos, fetchTodos }) => (
     <div>

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Routes from './ui/pages/Routes.js';
+import Routes from './ui/client/pages/Routes.js';
 import '@babel/polyfill';
 import './language/i18n';
 

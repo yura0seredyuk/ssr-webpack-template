@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from '../../../language/i18n';
+import i18n from '../../../../language/i18n';
 
 function LanguageToggle () {
   const changeLanguage = (lng) => {

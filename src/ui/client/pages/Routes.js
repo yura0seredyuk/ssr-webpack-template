@@ -1,8 +1,9 @@
 import Home from './Home/Home.jsx';
 import About from './About/About.jsx';
 import NotFound from './NotFound/NotFound.jsx';
-import App from '../../App.jsx';
+import App from '../../../App.jsx';
 import ToDos from './ToDos/ToDos.jsx';
+import AdminMain from '../../admin/pages/AdminMain/AdminMain';
 
 export default [
     {
@@ -20,6 +21,10 @@ export default [
             {
                 ...ToDos,
                 path: '/todos'
+            },
+            {
+                ...AdminMain,
+                path: '/admin'
             },
             {
                 ...NotFound

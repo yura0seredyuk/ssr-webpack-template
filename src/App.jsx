@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
-import LanguageToggle from './ui/components/LanguageToggle/LanguageToggle';
+import LanguageToggle from './ui/client/components/LanguageToggle/LanguageToggle';
 
 const App = ({ route }) => (
     <div>

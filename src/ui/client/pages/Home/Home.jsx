@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setHello } from '../../../store/actions';
+import { setHello } from '../../../../store/actions';
 import { withNamespaces } from 'react-i18next';
 import PropTypes from 'prop-types';
 
