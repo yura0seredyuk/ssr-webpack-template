@@ -13,7 +13,7 @@ class UserControllers {
 
             return res.json(userData);
         } catch (e) {
-            console.log('registration error', e);
+            next(e);
         }
     };
 
@@ -21,7 +21,7 @@ class UserControllers {
         try {
 
         } catch (e) {
-
+            next(e);
         }
     };
 
@@ -29,15 +29,18 @@ class UserControllers {
         try {
 
         } catch (e) {
-
+            next(e);
         }
     };
 
     async activate(req, res, next) {
         try {
+            const activationLink = req.params.link;
+            await userService.activate(activationLink);
 
+            return res.redirect(process.env.NODE_ENV === 'production' ? process.env.PROD_CLIENT_URL : process.env.DEV_CLIENT_URL);
         } catch (e) {
-
+            next(e);
         }
     };
 
@@ -45,7 +48,7 @@ class UserControllers {
         try {
 
         } catch (e) {
-
+            next(e);
         }
     };
 
@@ -53,7 +56,7 @@ class UserControllers {
         try {
 
         } catch (e) {
-
+            next(e);
         }
     };
 }

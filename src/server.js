@@ -15,6 +15,7 @@ import Routes from './ui/client/pages/Routes';
 import { store } from './store';
 import { assetsByChunkName } from '../dist/public/stats.json';
 import bodyParser from 'body-parser';
+const errorMiddleware = require('./middleware/error-middleware');
 
 const router = require('./router/index');
 
@@ -23,8 +24,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookiesParser());
 app.use(cors());
-
 app.use('/api', router);
+app.use(errorMiddleware);
 
 app.use(express.static('dist/public'));
 
@@ -111,7 +112,8 @@ const start = async () => {
             }
         })
         app.listen(PORT, () => {
-            console.log(`Server on port ${PORT}`);
+            console.log('mode:', process.env.NODE_ENV === 'production' ? 'production' : 'development');
+            console.log(`Server starts on port ${PORT}`);
         });
     } catch (e) {
         console.log('Error in server', e);
