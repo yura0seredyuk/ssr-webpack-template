@@ -14,7 +14,6 @@ const Home = ({ hello, setHello, t }) => (
         <Link to={'/todos'}>ToDo</Link>
         <br/>
         <div>{hello}</div>
-        {console.log(hello)}
         <button type='button' onClick={() => setHello('Hello')}>Click</button>
     </div>
 );

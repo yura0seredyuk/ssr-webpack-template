@@ -4,6 +4,7 @@ import NotFound from './NotFound/NotFound.jsx';
 import App from '../../../App.jsx';
 import ToDos from './ToDos/ToDos.jsx';
 import AdminMain from '../../admin/pages/AdminMain/AdminMain';
+import UserPage from './UserPage/UserPage';
 
 export default [
     {
@@ -25,6 +26,10 @@ export default [
             {
                 ...AdminMain,
                 path: '/admin'
+            },
+            {
+                ...UserPage,
+                path: '/user'
             },
             {
                 ...NotFound

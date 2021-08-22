@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime'
+
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -23,7 +25,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cookiesParser());
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: process.env.PROD_CLIENT_URL
+}));
 app.use('/api', router);
 app.use(errorMiddleware);
 
