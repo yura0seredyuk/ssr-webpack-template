@@ -24,7 +24,7 @@ class UserService {
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
-        return { ...tokens, user: userDto }
+        return { ...tokens, user: userDto };
     }
 
     async activate(activationLink) {
@@ -36,6 +36,27 @@ class UserService {
 
         user.isActivated = true;
         await user.save();
+    }
+
+    async login(email, password) {
+        const user = await UserModel.findOne({ email });
+
+        if (!user) {
+            throw ApiError.BadRequest(`User with email ${email} not found`);
+        }
+
+        const isPassEqual = await bcrypt.compare(password, user.password);
+
+        if (!isPassEqual) {
+            throw ApiError.BadRequest('Password or login isn\'t correct')
+        }
+
+        const userDto = new UserDto(user);
+        const tokens = tokenService.generateTokens({ ...userDto });
+
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+
+        return { ...tokens, user: userDto };
     }
 }
 
