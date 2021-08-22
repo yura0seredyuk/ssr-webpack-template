@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SET_HELLO, FETCH_TODOS, IS_AUTH, USER_DATA } from './types';
+import { SET_HELLO, FETCH_TODOS, IS_AUTH, USER_DATA, IS_LOADING } from './types';
 
 export const setHello = (payload) => ({
     type: SET_HELLO,
@@ -24,5 +24,10 @@ export const setAuth = (payload) => ({
 
 export const setUser = (payload) => ({
     type: USER_DATA,
+    payload
+});
+
+export const setLoading = (payload) => ({
+    type: IS_LOADING,
     payload
 });
