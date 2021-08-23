@@ -39,7 +39,7 @@ function Login({ isAuth, userData, isLoading }) {
 
     const logout = async () => {
         try {
-            const response = await AuthService.logout();
+            await AuthService.logout();
             localStorage.removeItem('token');
             dispatch(setAuth(false));
             dispatch(setUser({}));
