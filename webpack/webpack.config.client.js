@@ -10,6 +10,34 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { StatsWriterPlugin } = require("webpack-stats-plugin");
 
+const CSSModuleLoader = {
+    loader: 'css-loader',
+    options: {
+        modules: {
+            auto: true,
+            // localIdentName: '[name]_[local]_[hash:base64:5]',
+        },
+        importLoaders: 2,
+        sourceMap: false,
+    }
+}
+
+const CSSLoader = {
+    loader: 'css-loader',
+    options: {
+        modules: "global",
+        importLoaders: 2,
+        sourceMap: false,
+    }
+}
+
+const PostCSSLoader = {
+    loader: 'postcss-loader',
+    options: {
+        sourceMap: false,
+    }
+}
+
 module.exports = merge(baseConfig,{
     mode: 'production',
     entry: './src/client.js',
@@ -21,8 +49,13 @@ module.exports = merge(baseConfig,{
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                test: /\.(sa|sc|c)ss$/,
+                exclude: /\.module\.(sa|sc|c)ss$/,
+                use: [MiniCssExtractPlugin.loader, CSSLoader, "sass-loader"]
+            },
+            {
+                test: /\.module\.(sa|sc|c)ss$/,
+                use: [MiniCssExtractPlugin.loader, CSSModuleLoader, "sass-loader"]
             }
         ]
     },
@@ -55,7 +88,8 @@ module.exports = merge(baseConfig,{
            }
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles.[chunkhash].css'
+            filename: 'styles.[chunkhash].css',
+            chunkFilename: "[id].css"
         })
     ],
     devtool: 'inline-source-map'
