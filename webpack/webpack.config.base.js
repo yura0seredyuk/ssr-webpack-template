@@ -22,12 +22,16 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     name: '[name]__[hash].[ext]', // [name].[ext]
-                    outputPath: './assets'
+                    outputPath: 'images/'
                 }
             },
             {
-                test: /\.(woff(2)?|ttf|eot|otf|svg)(\?v=\d+\.\d+\.\d+)/,
-                type: 'asset/inline',
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts/'
+                }
             },
         ]
     },
