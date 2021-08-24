@@ -6,6 +6,9 @@ const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 const CSSModuleLoader = {
     loader: 'css-loader',
     options: {
@@ -38,6 +41,16 @@ module.exports = merge(baseConfig,{
         filename: 'server.js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
+    },
+    optimization: {
+        minimize: true,
+        splitChunks: {
+            chunks: 'all'
+        },
+        minimizer: [
+            new TerserPlugin(),
+            new CssMinimizerPlugin()
+        ]
     },
     module: {
         rules: [
