@@ -19,7 +19,11 @@ module.exports = {
             },
             {
                 test: /\.(?:ico|png|jpe?g|gif|svg)$/i,
-                type: 'asset/resource', // or asset
+                loader: 'file-loader',
+                options: {
+                    name: '[name]__[hash].[ext]', // [name].[ext]
+                    outputPath: './assets'
+                }
             },
             {
                 test: /\.(woff(2)?|ttf|eot|otf|svg)(\?v=\d+\.\d+\.\d+)/,
