@@ -6,7 +6,7 @@ import { fetchTodos } from '../../../../store/actions';
 const ToDos = ({ todos, fetchTodos }) => (
     <div>
         <h1>ToDo</h1>
-        <Link to={'/'}>Home</Link>
+        <Link to='/'>Home</Link>
         <button type='button' onClick={() => fetchTodos()}>Fetch Todos</button>
         {todos.map(data => <p key={data.id}>{`${data.id} ${data.title}`}</p>)}
     </div>

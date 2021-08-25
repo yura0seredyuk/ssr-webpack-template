@@ -4,7 +4,7 @@ import Login from '../../components/Login/Login';
 const UserPage = () => {
     return (
         <div>
-            <Login/>
+            <Login />
         </div>
     )
 };

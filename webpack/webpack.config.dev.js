@@ -21,7 +21,7 @@ const CSSModuleLoader = {
 const CSSLoader = {
     loader: 'css-loader',
     options: {
-        modules: "global",
+        modules: 'global',
         importLoaders: 2,
         sourceMap: false,
     }
@@ -36,7 +36,7 @@ const PostCSSLoader = {
 
 module.exports = merge(baseConfig,{
     mode: 'development',
-    entry: './src/client.js',
+    entry: './src/Client.jsx',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '../public'),
@@ -47,11 +47,11 @@ module.exports = merge(baseConfig,{
           {
               test: /\.(sa|sc|c)ss$/,
               exclude: /\.module\.(sa|sc|c)ss$/,
-              use: ['style-loader', CSSLoader, "sass-loader"]
+              use: ['style-loader', CSSLoader, 'sass-loader']
           },
           {
               test: /\.module\.(sa|sc|c)ss$/,
-              use: ['style-loader', CSSModuleLoader, "sass-loader"]
+              use: ['style-loader', CSSModuleLoader, 'sass-loader']
           }
       ]
     },

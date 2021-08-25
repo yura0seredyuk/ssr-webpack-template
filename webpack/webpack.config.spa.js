@@ -41,7 +41,7 @@ const PostCSSLoader = {
 
 module.exports = merge(baseConfig,{
     mode: 'production',
-    entry: './src/client.js',
+    entry: './src/Client.jsx',
     output: {
         filename: 'bundle.[chunkhash].js',
         path: path.resolve(__dirname, '../dist'),

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import axios from 'axios';
 import AuthService from '../../../../requests/AuthService';
 import { setAuth, setLoading, setUser } from '../../../../store/actions';
-import axios from 'axios';
 import { API_URL } from '../../../../http';
 import UserService from '../../../../requests/UserService';
 
@@ -83,22 +83,22 @@ function Login({ isAuth, userData, isLoading }) {
     return (
         !isLoading ? (
             <div>
-                {!isAuth  && <h1>Login</h1>}
+                {!isAuth && <h1>Login</h1>}
                 <h3>{isAuth ? `User authorized ${userData.email}` : 'You are not authorized'}</h3>
                 <h3>{userData.isActivated ? 'Your account is activated' : 'You should activate account'}</h3>
                 {!isAuth && (
                     <>
-                        <input type="text" placeholder='Email' onChange={e => setEmail(e.target.value)} value={email}/>
-                        <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)} value={password}/>
-                        <button onClick={() => handleLogin(email, password)}>Login</button>
-                        <button onClick={() => handleRegister(email, password)}>Register</button>
+                        <input type='text' placeholder='Email' onChange={e => setEmail(e.target.value)} value={email}/>
+                        <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} value={password}/>
+                        <button type='button' onClick={() => handleLogin(email, password)}>Login</button>
+                        <button type='button' onClick={() => handleRegister(email, password)}>Register</button>
                     </>
                 )}
                 {isAuth && (
                         <>
-                            <button onClick={logout}>Log out</button>
+                            <button type='button' onClick={logout}>Log out</button>
                             <br/>
-                            <button onClick={getUsers}>Get users</button>
+                            <button type='button' onClick={getUsers}>Get users</button>
 
 
                             {users.map(user => (
@@ -106,7 +106,7 @@ function Login({ isAuth, userData, isLoading }) {
                             ))}
                         </>
                 )}
-                {/*{console.log(isAuth, userData)}*/}
+                {/* {console.log(isAuth, userData)} */}
             </div>
         ) : (
             <div>Loading...</div>
@@ -122,4 +122,3 @@ const MapStateToProps = state => ({
 })
 
 export default connect(MapStateToProps)(Login);
-

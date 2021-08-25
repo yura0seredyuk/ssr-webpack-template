@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = `http://localhost:3000/api`;
+export const API_URL = 'http://localhost:3000/api';
 
 const $api = axios.create({
    withCredentials: true,
@@ -17,7 +17,7 @@ $api.interceptors.response.use((config) => {
 }, async (error) => {
     const originalRequest = error.config;
 
-    if(error.response.status === 401 && error.config && !error.config._isRetry) {
+    if (error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
 
         try {

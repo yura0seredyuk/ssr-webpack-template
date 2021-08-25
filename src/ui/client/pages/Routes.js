@@ -1,8 +1,8 @@
-import Home from './Home/Home.jsx';
-import About from './About/About.jsx';
-import NotFound from './NotFound/NotFound.jsx';
-import App from '../../../App.jsx';
-import ToDos from './ToDos/ToDos.jsx';
+import Home from './Home/Home';
+import About from './About/About';
+import NotFound from './NotFound/NotFound';
+import App from '../../../App';
+import ToDos from './ToDos/ToDos';
 import AdminMain from '../../admin/pages/AdminMain/AdminMain';
 import UserPage from './UserPage/UserPage';
 

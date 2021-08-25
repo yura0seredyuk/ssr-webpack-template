@@ -67,6 +67,12 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-multi-spaces": "warn",
     "react/jsx-tag-spacing": "warn",
-    "react/jsx-wrap-multilines": "warn"
+    "react/jsx-wrap-multilines": "warn",
+    "no-shadow": "warn",
+    "import/no-extraneous-dependencies": "warn",
+    "no-param-reassign": "warn",
+    "no-underscore-dangle": "warn",
+    "import/prefer-default-export": "warn",
+    "arrow-body-style": ["warn", "always"]
   }
 }
