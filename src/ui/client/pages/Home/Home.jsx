@@ -27,5 +27,7 @@ const MapDispatchToProps = { setHello }
 export default { component: connect(MapStateToProps, MapDispatchToProps)(withNamespaces()(Home)) };
 
 Home.propTypes = {
-    t : PropTypes.func.isRequired
-};
+    t: PropTypes.func.isRequired,
+    setHello: PropTypes.func.isRequired,
+    hello: PropTypes.string.isRequired
+}

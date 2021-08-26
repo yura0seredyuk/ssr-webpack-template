@@ -5,18 +5,19 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { matchRoutes, renderRoutes } from 'react-router-config';
 import express from 'express';
+import { Provider } from 'react-redux';
+import serialize from 'serialize-javascript';
+import bodyParser from 'body-parser';
+import Routes from './ui/client/pages/Routes';
+import '@babel/polyfill';
+import { store } from './store';
+import { assetsByChunkName } from '../dist/public/stats.json';
+
 const cors = require('cors');
 const cookiesParser = require('cookie-parser');
 const mongoose = require('mongoose');
 require('dotenv').config();
-import { Provider } from 'react-redux';
-import serialize from 'serialize-javascript';
-import '@babel/polyfill';
 
-import Routes from './ui/client/pages/Routes';
-import { store } from './store';
-import { assetsByChunkName } from '../dist/public/stats.json';
-import bodyParser from 'body-parser';
 const errorMiddleware = require('./middleware/error-middleware');
 
 const router = require('./router/index');
@@ -33,7 +34,6 @@ app.use('/api', router);
 app.use(errorMiddleware);
 
 app.use(express.static('dist/public'));
-
 
 const renderer = (req, store, context) => {
     const content = renderToString(
@@ -126,4 +126,3 @@ const start = async () => {
 };
 
 start();
-
