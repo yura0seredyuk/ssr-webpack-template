@@ -12,6 +12,7 @@ import '@babel/polyfill';
 import './language/i18n';
 
 import './styles.scss';
+import './reset.css';
 
 const rootElement = document.querySelector('#root');
 
