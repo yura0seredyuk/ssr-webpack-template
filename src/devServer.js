@@ -1,10 +1,10 @@
 require('dotenv').config()
+const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const router = require('./router/index')
-const bodyParser = require('body-parser');
 const errorMiddleware = require('./middleware/error-middleware');
 
 const PORT = process.env.PORT || 5000;
