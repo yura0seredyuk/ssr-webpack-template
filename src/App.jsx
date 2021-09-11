@@ -7,12 +7,12 @@ import Footer from './ui/client/components/Footer/Footer';
 
 const App = ({ route }) => (
     <div>
-        <Header />
+        <Header/>
         <LanguageToggle />
         <div className={styles.root}>
             {renderRoutes(route.routes)}
         </div>
-        <Footer />
+        <Footer/>
     </div>
 );
 
