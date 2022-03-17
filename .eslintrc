@@ -72,6 +72,7 @@
     "no-param-reassign": "warn",
     "no-underscore-dangle": "warn",
     "import/prefer-default-export": "warn",
-    "arrow-body-style": ["warn", "always"]
+    "arrow-body-style": ["warn", "always"],
+    "class-methods-use-this": ["warn"]
   }
 }

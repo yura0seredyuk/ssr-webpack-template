@@ -1,5 +1,5 @@
-const userService = require('../service/user-service');
 const { validationResult } = require('express-validator');
+const userService = require('../service/user-service');
 const ApiError = require('../exceptions/api-errors');
 
 class UserControllers {
@@ -19,7 +19,7 @@ class UserControllers {
 
             return res.json(userData);
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 
@@ -35,7 +35,7 @@ class UserControllers {
             return res.json(userData);
 
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 
@@ -47,7 +47,7 @@ class UserControllers {
 
             return res.json(token);
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 
@@ -58,7 +58,7 @@ class UserControllers {
 
             return res.redirect(process.env.NODE_ENV === 'production' ? process.env.PROD_CLIENT_URL : process.env.DEV_CLIENT_URL);
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 
@@ -73,7 +73,7 @@ class UserControllers {
 
             return res.json(userData);
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 
@@ -82,7 +82,7 @@ class UserControllers {
             const users = await userService.getAllUsers();
             return res.json(users)
         } catch (e) {
-            next(e);
+            return next(e);
         }
     };
 }
